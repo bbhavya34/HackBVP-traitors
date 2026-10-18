@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist), "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), "SFMono-Regular", Consolas, monospace;
+  --font-serif: var(--font-source-serif), Georgia, serif;
+}
+
+@layer base {
+  :root {
+    --canvas: #FFFFFF;
+    --surface-subtle: #F8FAFC;
+    --surface-red: #FEF2F2;
+    --text-primary: #111827;
+    --text-secondary: #475569;
+    --border-default: #E2E8F0;
+    --border-control: #64748B;
+    --brand: #991B1B;
+    --brand-hover: #7F1D1D;
+    --risk-high: #B91C1C;
+    --risk-review: #92400E;
+    --risk-lower: #166534;
+    --state-unavailable: #475569;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--text-primary);
+    font-family: var(--font-geist), "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    font-optical-sizing: auto;
+    font-variant-numeric: proportional-nums;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+    letter-spacing: -0.025em;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp,
+  .font-mono {
+    font-family: var(--font-geist-mono), "SFMono-Regular", Consolas, monospace;
+    font-variant-numeric: tabular-nums slashed-zero;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .display-heading {
+    font-family: var(--font-source-serif), Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.98;
+  }
+
+  .section-kicker {
+    color: var(--brand);
+    font-size: 0.8125rem;
+    font-weight: 650;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer utilities {
+  /* Keep heavy dashboard figures crisp without the blunt, poster-like 900 weight. */
+  .font-black {
+    font-weight: 700;
+  }
+
+  /* The original UI overused 9–11 px labels. Keep dense metadata legible. */
+  .text-\[9px\] {
+    font-size: 0.75rem;
+    line-height: 1.1rem;
+  }
+
+  .text-\[10px\],
+  .text-\[11px\] {
+    font-size: 0.8125rem;
+    line-height: 1.2rem;
+  }
+
+  .text-xs {
+    font-size: 0.875rem;
+    line-height: 1.35rem;
+  }
+
+  .text-sm {
+    font-size: 0.9375rem;
+    line-height: 1.5rem;
+  }
+
+  .tracking-wider {
+    letter-spacing: 0.015em;
+  }
+
+  .uppercase {
+    text-transform: none;
+  }
+}
+
+/* A quieter product surface: fewer pills, softer corners, and less template-like depth. */
+.app-shell main h1 {
+  font-size: clamp(1.75rem, 2vw, 2rem);
+  line-height: 1.2;
+}
+
+.app-shell main h2 {
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.app-shell .rounded-2xl {
+  border-radius: 0.75rem;
+}
+
+.app-shell .rounded-xl {
+  border-radius: 0.5rem;
+}
+
+.app-shell button.rounded-full,
+.app-shell a.rounded-full,
+.marketing-page button.rounded-full,
+.marketing-page a.rounded-full {
+  border-radius: 0.5rem;
+}
+
+.app-shell .shadow-xl,
+.app-shell .shadow-2xl,
+.marketing-page .shadow-xl,
+.marketing-page .shadow-2xl {
+  box-shadow: 0 10px 28px rgb(15 23 42 / 0.1);
+}
+
+.app-shell [class*="overflow-x-auto"] {
+  overscroll-behavior-inline: contain;
+  scrollbar-gutter: stable;
+}
+
+.app-shell table {
+  min-width: 44rem;
+}
+
+@media (max-width: 639px) {
+  .marketing-page section {
+    scroll-margin-top: 5rem;
+  }
+
+  .marketing-page .display-heading {
+    line-height: 1.04;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
